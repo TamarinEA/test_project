@@ -1,0 +1,12 @@
+<h1>Rename group <%= @group.name%></h1>
+<%= link_to 'Return to groups', groups_path %>
+<%= form_for :group, url: group_path(@group), method: :put do |f| %>
+  <% if @group.errors.any? %>
+    <br>
+    <% @group.errors.full_messages.each do |msg| %>
+      <font color="red">Error: <%= msg %></font>
+    <% end %>
+  <% end %>
+  <p> <%= f.label :name %> <br> <%= f.text_field :name %> </p>
+  <p> <%= f.submit %> </p>
+<% end %>

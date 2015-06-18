@@ -1,0 +1,23 @@
+class DataFile < ActiveRecord::Base
+
+  def self.save(file_name)
+    name =  file_name.original_filename
+    directory = UPLOAD_PATH
+    path = File.join(directory, name)
+    File.open(path, "wb") { |f| f.write(file_name.read) }
+  end
+
+  def self.search(file_name, word)
+    name =  file_name["original_filename"]
+    directory = UPLOAD_PATH
+    path = File.join(directory, name)
+    new_path = File.join(directory, 'search_in_' + name)
+    new_text = ""
+    load_text = File.open(path).read
+    load_text.each_line do |line|
+      new_text += line if line.downcase.include? word.downcase
+    end
+    File.open(new_path, "wb") { |f| f.write(new_text) }
+    new_path
+  end
+end

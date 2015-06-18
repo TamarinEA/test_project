@@ -1,0 +1,10 @@
+<%= form_for :group, url: groups_path do |f| %>
+  <% if @group.errors.any? %>
+    <br>
+    <% @group.errors.full_messages.each do |msg| %>
+      <font color="red">Error: <%= msg %></font>
+    <% end %>
+  <% end %>
+  <p> <%= f.label :name %> <br> <%= f.text_field :name %> </p>
+  <p> <%= f.submit %> </p>
+<% end %>

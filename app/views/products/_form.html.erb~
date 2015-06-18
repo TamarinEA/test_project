@@ -1,0 +1,5 @@
+<%= form_for([@group, @group.products.build]) do |f| %>
+  <p><%= f.label :name %> <%= f.text_field :name %></p>
+  <p><%= f.label :price %> <%= f.text_field :price %></p>
+  <p><%= f.submit %></p>
+<% end %>

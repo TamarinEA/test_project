@@ -1,0 +1,3 @@
+<h1>Edit product <%= @product.name%></h1>
+<%= link_to 'Return to group', group_path(@group) %>
+<%= render 'form' %>

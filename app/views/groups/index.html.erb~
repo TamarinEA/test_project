@@ -1,0 +1,31 @@
+<h1>Groups</h1>
+<%= link_to 'New group', new_group_path %>
+<% if @groups.size == 0 %>
+  <h3>Create new group</h3>
+<% else %>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Product count</th>
+      <th>Destroy</th>
+      <th>Edit</th>
+    </tr>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.id %></td>
+        <td><%= link_to group.name, group%></td>
+        <td align=center><%= group.products.size %></td>
+        <td><%= link_to 'delete', group, method: :delete %></td>
+        <td><%= link_to 'rename', edit_group_path(group) %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<br>
+<%= link_to 'find milk with sql', '../find/milk' %>
+<br>
+<%= link_to 'find milk with activerecords', '../find' %>
+<br>
+<%= link_to 'download catalog', '../catalog/index' %>

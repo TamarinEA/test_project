@@ -1,0 +1,7 @@
+<h1>Edit product <%= @product.name%></h1>
+<%= link_to 'Return to group', group_path(@group) %>
+<%= form_for([@group, @product]) do |f| %>
+  <p><%= f.label :name %> <%= f.text_field :name %></p>
+  <p><%= f.label :price %> <%= f.text_field :price %></p>
+  <p><%= f.submit %></p>
+<% end %>

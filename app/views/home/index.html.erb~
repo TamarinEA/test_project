@@ -1,0 +1,35 @@
+<h1>Request</h1>
+<table border=1>
+  <th>name</th>
+  <th>value</th>
+  <tr>
+    <td>host</td><td><%= @host%></td>
+  </tr>
+  <tr>
+    <td>format</td><td><%= @format%></td>
+  </tr>
+  <tr>
+    <td>method get?</td><td><%= @method_get%></td>
+  </tr>
+  <tr>
+    <td>Connection <br>(from headers)</td><td><%= @headers%></td>
+  </tr>
+  <tr>
+    <td>port</td><td><%= @port%></td>
+  </tr>
+  <tr>
+    <td>protocol</td><td><%= @protocol%></td>
+  </tr>
+  <tr>
+    <td>query_string</td><td><%= @query_string%></td>
+  </tr>
+  <tr>
+    <td>remote_ip</td><td><%= @remote_ip%></td>
+  </tr>
+  <tr>
+    <td>url</td><td><%= @url%></td>
+  </tr>
+  <tr>
+    <td>resque</td><td><%= @resque%></td>
+  </tr>
+</table>

@@ -1,0 +1,6 @@
+<%= form_for(:file) do |f| %>
+  <p><%= f.label :name %><%= f.file_field :name %></p>
+  <p><%= f.label :word %><%= f.text_field :word, value: @file[:word] %></p>
+  <p><%= f.label :email %><%= f.email_field :email, value: @file[:email] %></p>
+  <p><%= f.submit %></p>
+<% end %>

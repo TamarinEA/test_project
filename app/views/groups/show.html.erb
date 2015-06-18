@@ -1,0 +1,35 @@
+<h1>Group <%= @group.name%></h1>
+<%= link_to 'Delete group', group_path, method: :delete %>
+<%= link_to 'Rename group', edit_group_path %>
+<br>
+<% if @group.products.size == 0 %>
+  <h3>Create new products</h3>
+<% else %>
+  <h3>Products</h3>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Destroy</th>
+      <th>Edit</th>
+    </tr>
+    <% @group.products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <td><%= link_to 'delete', [product.group, product], method: :delete %>
+        <td><%= link_to 'update', [:edit, product.group, product] %>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<h3>New product</h3>
+<%= form_for([@group, @group.products.build]) do |f| %>
+  <p><%= f.label :name %> <%= f.text_field :name %></p>
+  <p><%= f.label :price %> <%= f.text_field :price %></p>
+  <p><%= f.submit %></p>
+<% end %>
+<%= link_to 'Return to groups', groups_path %>

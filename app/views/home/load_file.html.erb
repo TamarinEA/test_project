@@ -1,0 +1,6 @@
+<% if flash[:error] && flash[:error].size > 0 %>
+    <% flash[:error].each do |f| %>
+      <div class="error"><%= f %></div>
+    <% end %>
+  <% end %>
+<%= render 'form' %>

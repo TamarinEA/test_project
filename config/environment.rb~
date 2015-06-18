@@ -1,0 +1,16 @@
+# Load the rails application
+require File.expand_path('../application', __FILE__)
+
+config.action_mailer.smtp_settings = {
+  address: "smtp.gmail.com",
+  port: 587,
+  domain: "example.com",
+  authentication: "plain",
+  enable_starttls_auto: true,
+  user_name: ENV["tea.tamarin@gmail.com"],
+  password: ENV["0432937far"]
+}
+
+# Initialize the rails application
+TestProject::Application.initialize!
+
